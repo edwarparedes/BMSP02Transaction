@@ -5,6 +5,9 @@ import com.nttdata.transaction.model.Account;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public interface ITransactionService {
 
     Flux<Transaction> getAll();
@@ -22,5 +25,12 @@ public interface ITransactionService {
     Mono<Account> updateAccount(Account account);
 
     Flux<Transaction> findByAccountId(String accountId);
+
+    Mono<Account> getByAccountNumber(String accountNumber);
+
+    Mono<Transaction> transferMoney(Transaction transaction, String accountNumber, String toAccountNumber);
+
+    Flux<Transaction> commissionsCharged(String accountId, LocalDate fromDate, LocalDate toDate);
+
 
 }

@@ -13,6 +13,8 @@ public class Transaction {
     private String id;
     private String type;
     private LocalDateTime creationTime;
+    private Double transactionFee;
     private Double amount;
+    private String destinationAccountNumber;
     private String accountId;
 }
